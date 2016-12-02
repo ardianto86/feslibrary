@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FesLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -30,7 +31,10 @@ namespace FesLibrary.Controllers
         public ActionResult Catalogue()
         {
             ViewBag.Message = "Catalogue";
-            return View();
+
+            CatalogueContext context = new CatalogueContext();
+            List<CatalogueItem> items = context.CatalogueItems.ToList<CatalogueItem>();
+            return View(items);
         }
 
         public ActionResult Borrow()

@@ -1,7 +1,56 @@
-﻿
+﻿@model IEnumerable<FesLibrary.Models.CatalogueItem>
+@using FesLibrary.Models
+
 @{
     ViewBag.Title = "Catalogue";
 }
 
 <h2>Catalogue</h2>
 
+<table>
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Title
+        </th>
+        <th>
+            Author
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Borrower
+        </th>
+        <th>
+            Due Date
+        </th>
+    </tr>
+
+    @foreach (CatalogueItem item in @Model)
+    {
+        <tr>
+            <td>
+                @item.ID
+            </td>
+            <td>
+                @item.Title
+            </td>
+            <td>
+                @item.Authors
+            </td>
+            <td>
+                @item.Status
+            </td>
+            <td>
+                @item.Borrower
+            </td>
+            <td>
+                @item.DueDate
+            </td>
+        </tr>
+    }
+
+</table>
