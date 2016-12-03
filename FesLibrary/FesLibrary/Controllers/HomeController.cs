@@ -42,6 +42,17 @@ namespace FesLibrary.Controllers
             CatalogueContext context = new CatalogueContext();
             var item = context.CatalogueItems.ToList<CatalogueItem>().Single(x => x.ID == id);
 
+            if (item.Status == "available")
+            {
+                item.Status = "checked out";
+                item.Borrower = string.Empty;
+
+                string str = (DateTime.Now + TimeSpan.FromDays(7)).Date.ToShortDateString();
+
+                item.DueDate = str;
+            }
+
+            int ret = context.SaveChanges();
             return RedirectToAction("Catalogue");
         }
 
@@ -52,6 +63,17 @@ namespace FesLibrary.Controllers
 
         public ActionResult Return(int id)
         {
+            CatalogueContext context = new CatalogueContext();
+            var item = context.CatalogueItems.ToList<CatalogueItem>().Single(x => x.ID == id);
+
+            if (item.Status == "checked out")
+            {
+                item.Status = "available";
+                item.Borrower = string.Empty;
+                item.DueDate = string.Empty;
+            }
+
+            int ret = context.SaveChanges();
             return RedirectToAction("Catalogue");
         }
 

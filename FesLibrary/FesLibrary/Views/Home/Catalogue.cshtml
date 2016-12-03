@@ -27,6 +27,10 @@
         <th>
             Due Date
         </th>
+
+        <th colspan="3">
+            Actions
+        </th>
     </tr>
 
         @foreach (CatalogueItem item in @Model)
@@ -47,9 +51,11 @@
                 <td>
                     @item.Borrower
                 </td>
+
                 <td>
-                    @item.DueDate
+                    <text style="color:red">@item.DueDate</text>
                 </td>
+                
                 @if (item.Status == "available")
                 { 
                     <td align='center'>
