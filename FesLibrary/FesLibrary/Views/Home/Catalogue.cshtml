@@ -7,7 +7,7 @@
 
 <h2>Catalogue</h2>
 
-<table width='100%'>
+<table width='100%' border="1">
     <tr>
         <th>
             ID
@@ -50,15 +50,44 @@
                 <td>
                     @item.DueDate
                 </td>
-                <td align='center'>
-                    @Html.ActionLink("Borrow", "Borrow", new {id = item.ID})
-                </td>
-                <td align='center'>
-                    @Html.ActionLink("Extend", "Extend", new { id = item.ID })
-                </td>
-                <td align='center'>
-                    @Html.ActionLink("Return", "Return", new { id = item.ID })
-                </td>
+                @if (item.Status == "available")
+                { 
+                    <td align='center'>
+                        @Html.ActionLink("Borrow", "Borrow", new {id = item.ID})
+                    </td>
+                }
+                else
+                {
+                    <td align='center'>
+                        <text> - </text>
+                    </td>
+                }
+                
+                @if (item.Status == "checked out")
+                {
+                    <td align='center'>
+                        @Html.ActionLink("Extend", "Extend", new { id = item.ID })
+                    </td>
+                }
+                else
+                {
+                    <td align='center'>
+                        <text> - </text>
+                    </td>
+                }
+
+                @if (item.Status == "checked out")
+                {
+                    <td align='center'>
+                        @Html.ActionLink("Return", "Return", new { id = item.ID })
+                    </td>
+                }
+                else
+                {
+                    <td align='center'>
+                        <text> - </text>
+                    </td>
+                }
         </tr>
     }
 

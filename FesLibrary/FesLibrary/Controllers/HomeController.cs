@@ -39,6 +39,9 @@ namespace FesLibrary.Controllers
 
         public ActionResult Borrow(int id)
         {
+            CatalogueContext context = new CatalogueContext();
+            var item = context.CatalogueItems.ToList<CatalogueItem>().Single(x => x.ID == id);
+
             return RedirectToAction("Catalogue");
         }
 
