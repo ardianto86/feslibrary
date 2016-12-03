@@ -7,7 +7,7 @@
 
 <h2>Catalogue</h2>
 
-<table>
+<table width='100%'>
     <tr>
         <th>
             ID
@@ -29,27 +29,36 @@
         </th>
     </tr>
 
-    @foreach (CatalogueItem item in @Model)
-    {
-        <tr>
-            <td>
-                @item.ID
-            </td>
-            <td>
-                @item.Title
-            </td>
-            <td>
-                @item.Authors
-            </td>
-            <td>
-                @item.Status
-            </td>
-            <td>
-                @item.Borrower
-            </td>
-            <td>
-                @item.DueDate
-            </td>
+        @foreach (CatalogueItem item in @Model)
+        {
+            <tr>
+                <td>
+                    @item.ID
+                </td>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.Authors
+                </td>
+                <td>
+                    @item.Status
+                </td>
+                <td>
+                    @item.Borrower
+                </td>
+                <td>
+                    @item.DueDate
+                </td>
+                <td align='center'>
+                    @Html.ActionLink("Borrow", "Borrow", new {id = item.ID})
+                </td>
+                <td align='center'>
+                    @Html.ActionLink("Extend", "Extend", new { id = item.ID })
+                </td>
+                <td align='center'>
+                    @Html.ActionLink("Return", "Return", new { id = item.ID })
+                </td>
         </tr>
     }
 

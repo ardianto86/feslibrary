@@ -15,5 +15,11 @@ namespace FesLibrary.Models
 
         }
 
+        public int AddItem(CatalogueItem item)
+        {
+            CatalogueItems.Add(item);
+            return SaveChanges();
+        }
+
     }
 }

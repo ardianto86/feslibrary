@@ -1,0 +1,35 @@
+﻿@model FesLibrary.Models.CatalogueItem
+@{
+    ViewBag.Title = "AddItem";
+}
+
+<h2>AddItem</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Library Item</legend>
+        <div>
+            @Html.LabelFor(model => model.ID)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.ID)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Title)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Authors)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Authors)
+        </div>
+        <p>
+            <input type="submit" value="Create"/>
+        </p>
+    </fieldset>
+}

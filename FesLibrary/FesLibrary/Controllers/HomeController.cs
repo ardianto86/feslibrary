@@ -37,25 +37,40 @@ namespace FesLibrary.Controllers
             return View(items);
         }
 
-        public ActionResult Borrow()
+        public ActionResult Borrow(int id)
         {
-            ViewBag.Message = "Borrow";
+            return RedirectToAction("Catalogue");
+        }
 
+        public ActionResult Extend(int id)
+        {
+            return RedirectToAction("Catalogue");
+        }
+
+        public ActionResult Return(int id)
+        {
+            return RedirectToAction("Catalogue");
+        }
+
+        [HttpGet]
+        public ActionResult AddItem()
+        {
+            
             return View();
         }
 
-        public ActionResult Extend()
+        [HttpPost]
+        public ActionResult AddItem(FormCollection formCollection)
         {
-            ViewBag.Message = "Extend";
+            CatalogueItem item = new CatalogueItem();
+            item.ID = Convert.ToInt64(formCollection["ID"]);
+            item.Title = formCollection["Title"];
+            item.Authors = formCollection["Authors"];
+            item.Status = "available";
+            CatalogueContext context = new CatalogueContext();
 
-            return View();
-        }
-
-        public ActionResult Return()
-        {
-            ViewBag.Message = "Return";
-
-            return View();
+            int ret = context.AddItem(item);
+            return RedirectToAction("Catalogue");
         }
     }
 }

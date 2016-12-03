@@ -239,9 +239,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Catalogue.cshtml" />
-    <Content Include="Views\Home\Borrow.cshtml" />
-    <Content Include="Views\Home\Extend.cshtml" />
-    <Content Include="Views\Home\Return.cshtml" />
+    <Content Include="Views\Home\AddItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

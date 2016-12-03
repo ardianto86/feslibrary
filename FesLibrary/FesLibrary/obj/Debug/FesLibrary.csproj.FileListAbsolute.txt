@@ -111,3 +111,4 @@ C:\feslibrary\feslibrary\FesLibrary\FesLibrary\bin\Microsoft.Owin.Security.Twitt
 C:\feslibrary\feslibrary\FesLibrary\FesLibrary\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\feslibrary\feslibrary\FesLibrary\FesLibrary\obj\Debug\FesLibrary.dll
 C:\feslibrary\feslibrary\FesLibrary\FesLibrary\obj\Debug\FesLibrary.pdb
+C:\feslibrary\feslibrary\FesLibrary\FesLibrary\obj\Debug\FesLibrary.csprojResolveAssemblyReference.cache
